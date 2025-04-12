@@ -27,32 +27,32 @@ import AppLogo from './AppLogo.vue';
 const mainNavItems: NavItem[] = [
     {
         title: 'Dashboard',
-        href: '/dashboard',
+        href: '/admin/dashboard',
         icon: LayoutGrid,
     },
     {
         title: 'Categories',
-        href: '/categories',
+        href: '/admin/categories',
         icon: BookCopy,
     },
     {
         title: 'Providers',
-        href: '/providers',
+        href: '/admin/providers',
         icon: SquareTerminal,
     },
     {
         title: 'Examinations',
-        href: '/examinations',
+        href: '/admin/exams',
         icon: BookOpenCheck,
     },
     {
         title: 'Questions',
-        href: '/questions',
+        href: '/admin/questions',
         icon: BookCheck,
     },
     {
         title: 'Users',
-        href: '/users',
+        href: '/admin/users',
         icon: UserRoundCog,
     },
 

@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Response;
 
 class HandleAppearance
@@ -16,6 +17,13 @@ class HandleAppearance
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // Log::info('Request details');
+        // Log::info($request);
+
+        // Log::info('Closure details');
+        // Log::info($next);
+
+
         View::share('appearance', $request->cookie('appearance') ?? 'system');
 
         return $next($request);

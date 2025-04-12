@@ -64,10 +64,11 @@
 </script>
 
 <template>
-    <div class="flex items-center py-4">
+    <div class="flex items-center justify-between py-4 space-x-2">
         <Input class="max-w-sm h-8 py-1" placeholder="Filter emails..."
             :model-value="table.getColumn('email')?.getFilterValue() as string"
             @update:model-value=" table.getColumn('email')?.setFilterValue($event)" />
+        <!-- <Button>Add Provider</Button> -->
     </div>
     <div class="border rounded-md">
         <Table>
