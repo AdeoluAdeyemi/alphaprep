@@ -15,7 +15,7 @@ import { FormatPainter } from 'ckeditor5-premium-features';
 import 'ckeditor5/ckeditor5.css';
 import 'ckeditor5-premium-features/ckeditor5-premium-features.css';
 
-const data = ref( '<p>Hello world!</p>' );
+const data = ref( '<p>Type a text</p>' );
 
 const config = computed( () => {
     return {

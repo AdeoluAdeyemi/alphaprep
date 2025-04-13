@@ -1,28 +1,28 @@
 <script setup lang="ts">
-    //import type { Payment } from '@/components/payments/columns'
-    import { onMounted, ref } from 'vue'
-    import { columns, payments } from '@/components/payments/columns'
-    import DataTable from '@/components/ui/data-table/DataTable.vue'
-    import AppLayout from '@/layouts/AppLayout.vue';
-    import { type BreadcrumbItem } from '@/types';
-    import { Button } from '@/components/ui/button';
-    import Editor from '@/components/Editor.vue';
-    import ChatCard from '@/components/ChatCard.vue';
-    import { CirclePlus, Pencil } from 'lucide-vue-next'
-    import PlaceholderPattern from '@/components/PlaceholderPattern.vue';
-    import { Head, useForm } from '@inertiajs/vue3';
-    import InputError from '@/components/InputError.vue';
-    import {
-        Dialog,
-        DialogContent,
-        DialogDescription,
-        DialogFooter,
-        DialogHeader,
-        DialogTitle,
-        DialogTrigger,
-    } from '@/components/ui/dialog';
-    import { Input } from '@/components/ui/input'
-    import { Label } from '@/components/ui/label'
+//import type { Payment } from '@/components/payments/columns'
+import { onMounted, ref } from 'vue'
+import { columns, payments } from '@/components/payments/columns'
+import DataTable from '@/components/ui/data-table/DataTable.vue'
+import AppLayout from '@/layouts/AppLayout.vue';
+import { type BreadcrumbItem } from '@/types';
+import { Button } from '@/components/ui/button';
+import Editor from '@/components/Editor.vue';
+import ChatCard from '@/components/ChatCard.vue';
+import { CirclePlus, Pencil } from 'lucide-vue-next'
+import PlaceholderPattern from '@/components/PlaceholderPattern.vue';
+import { Head, useForm } from '@inertiajs/vue3';
+import InputError from '@/components/InputError.vue';
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
 import {
     Sheet,
@@ -111,7 +111,7 @@ const form = useForm({
                                 </div>
                                 <div class="grid gap-2">
                                     <Label for="url">Description</Label>
-                                    <Editor />
+                                    <QuillEditor :modules="modules" theme="snow" toolbar="full" />
                                 </div>
                             </div>
                             <DialogFooter>
@@ -153,7 +153,7 @@ const form = useForm({
                                 </div>
                                 <div class="grid gap-2">
                                     <Label for="url">Description</Label>
-                                    <Editor />
+                                    <QuillEditor :modules="modules" theme="snow" toolbar="full" />
                                 </div>
                             </div>
                             <DialogFooter>

@@ -48,6 +48,9 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     //     ->only(['index','create','store','edit','update','destroy'])
     //     ->names('admin.questions');
 
+    Route::get('users', function () {
+        return Inertia::render('admin/Users');
+    })->middleware(['auth', 'verified'])->name('admin.users');
     // // User Management
     // Route::resource('users', UserController::class)
     //     ->only(['index','create','store'])

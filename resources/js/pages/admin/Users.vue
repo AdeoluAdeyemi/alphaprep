@@ -38,8 +38,8 @@
 
     const breadcrumbs: BreadcrumbItem[] = [
         {
-            title: 'Providers',
-            href: '/admin/providers',
+            title: 'Users',
+            href: '/admin/users',
         },
     ];
 
@@ -70,14 +70,14 @@ const form = useForm({
 </script>
 
 <template>
-    <Head title="Providers" />
+    <Head title="Users" />
 
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
             <!-- <DataTable :columns="columns" :data="payments" /> -->
             <div class="flex items-center justify-between space-y-2">
                 <h2 class="text-2xl font-semibold tracking-tight">
-                    Providers
+                    Users
                 </h2>
                 <div class="flex items-center space-x-2">
                     <Dialog class="create">
@@ -87,12 +87,12 @@ const form = useForm({
                             </Button> -->
                             <Button class="h-9">
                                 <CirclePlus class="mr-2 h-4 w-4" />
-                                Add Provider
+                                Add User
                             </Button>
                         </DialogTrigger>
                         <DialogContent>
                             <DialogHeader>
-                                <DialogTitle>Add Provider</DialogTitle>
+                                <DialogTitle>Add User</DialogTitle>
                                 <DialogDescription>
                                     Fields with asterisks <span class="text-red-600">(*)</span> are mandatory fields.
                                 </DialogDescription>
@@ -140,31 +140,14 @@ const form = useForm({
                                     </div>
                                     <div class="grid gap-2">
                                         <Label for="state">Category*</Label>
-                                        <Select>
-                                            <SelectTrigger class="">
-                                                <SelectValue placeholder="Select a category" />
-                                            </SelectTrigger>
-                                            <SelectContent>
-                                                <SelectGroup>
-                                                    <SelectLabel>Category</SelectLabel>
-                                                    <SelectItem value="apple">
-                                                    Apple
-                                                    </SelectItem>
-                                                    <SelectItem value="banana">
-                                                    Banana
-                                                    </SelectItem>
-                                                    <SelectItem value="blueberry">
-                                                    Blueberry
-                                                    </SelectItem>
-                                                    <SelectItem value="grapes">
-                                                    Grapes
-                                                    </SelectItem>
-                                                    <SelectItem value="pineapple">
-                                                    Pineapple
-                                                    </SelectItem>
-                                                </SelectGroup>
-                                            </SelectContent>
-                                        </Select>
+                                        <Input
+                                            id="state"
+                                            type="text"
+                                            v-model="form.state"
+                                            required
+                                            autofocus
+                                            autocomplete="state"
+                                        />
 
                                         <InputError :message="form.errors.state" />
                                     </div>
@@ -188,7 +171,7 @@ const form = useForm({
                             <DialogFooter>
                                 <Button type="submit" class="mt-2 h-9" tabindex="5" :disabled="form.processing">
                                     <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
-                                    Save Provider
+                                    Save User
                                 </Button>
                             </DialogFooter>
                         </DialogContent>
@@ -200,7 +183,7 @@ const form = useForm({
                             </Button> -->
                             <Button class="h-9">
                                 <Pencil class="mr-2 h-4 w-4" />
-                                Edit Provider
+                                Edit User
                             </Button>
                         </DialogTrigger>
                         <DialogContent>

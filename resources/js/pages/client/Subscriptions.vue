@@ -140,31 +140,14 @@ const form = useForm({
                                     </div>
                                     <div class="grid gap-2">
                                         <Label for="state">Category*</Label>
-                                        <Select>
-                                            <SelectTrigger class="">
-                                                <SelectValue placeholder="Select a category" />
-                                            </SelectTrigger>
-                                            <SelectContent>
-                                                <SelectGroup>
-                                                    <SelectLabel>Category</SelectLabel>
-                                                    <SelectItem value="apple">
-                                                    Apple
-                                                    </SelectItem>
-                                                    <SelectItem value="banana">
-                                                    Banana
-                                                    </SelectItem>
-                                                    <SelectItem value="blueberry">
-                                                    Blueberry
-                                                    </SelectItem>
-                                                    <SelectItem value="grapes">
-                                                    Grapes
-                                                    </SelectItem>
-                                                    <SelectItem value="pineapple">
-                                                    Pineapple
-                                                    </SelectItem>
-                                                </SelectGroup>
-                                            </SelectContent>
-                                        </Select>
+                                        <Input
+                                            id="state"
+                                            type="text"
+                                            v-model="form.state"
+                                            required
+                                            autofocus
+                                            autocomplete="state"
+                                        />
 
                                         <InputError :message="form.errors.state" />
                                     </div>

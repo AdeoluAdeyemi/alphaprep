@@ -31,6 +31,35 @@ const mainNavItems: NavItem[] = [
         icon: LayoutGrid,
     },
     {
+        title: 'View Examinations',
+        href: '/admin/categories',
+        icon: BookCopy,
+    },
+    {
+        title: 'Practice',
+        href: '/admin/providers',
+        icon: SquareTerminal,
+    },
+    {
+        title: 'Subscriptions',
+        href: '/admin/exams',
+        icon: BookOpenCheck,
+    },
+    {
+        title: 'Help',
+        href: '/admin/questions',
+        icon: BookCheck,
+    }
+
+];
+
+const footerNavItems: NavItem[] = [
+{
+        title: 'Dashboard',
+        href: '/admin/dashboard',
+        icon: LayoutGrid,
+    },
+    {
         title: 'Categories',
         href: '/admin/categories',
         icon: BookCopy,
@@ -54,21 +83,7 @@ const mainNavItems: NavItem[] = [
         title: 'Users',
         href: '/admin/users',
         icon: UserRoundCog,
-    },
-
-];
-
-const footerNavItems: NavItem[] = [
-    {
-        title: 'Github Repo',
-        href: 'https://github.com/laravel/vue-starter-kit',
-        icon: Folder,
-    },
-    {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits',
-        icon: BookOpen,
-    },
+    }
 ];
 </script>
 

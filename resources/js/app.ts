@@ -6,6 +6,10 @@ import type { DefineComponent } from 'vue';
 import { createApp, h } from 'vue';
 import { ZiggyVue } from 'ziggy-js';
 import { initializeTheme } from './composables/useAppearance';
+import { QuillEditor } from '@vueup/vue-quill'
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
+// import { quillEditor, Quill } from 'vue3-quill'
+// // import customQuillModule from 'customQuillModule'
 
 // Extend ImportMeta interface for Vite...
 declare module 'vite/client' {
@@ -29,6 +33,8 @@ createInertiaApp({
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue)
+            // .use(quillEditor)
+            .component('QuillEditor', QuillEditor)
             .mount(el);
     },
     progress: {
