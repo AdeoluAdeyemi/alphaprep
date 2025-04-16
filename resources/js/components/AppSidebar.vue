@@ -21,28 +21,32 @@ import {
     BookCopy,
     UserRoundCog,
     BookCheck,
-    BookOpenCheck } from 'lucide-vue-next';
+    BookOpenCheck,
+    Home,
+    Users,
+    LifeBuoy,
+    Send} from 'lucide-vue-next';
 import AppLogo from './AppLogo.vue';
 
 const mainNavItems: NavItem[] = [
     {
         title: 'Dashboard',
         href: '/admin/dashboard',
-        icon: LayoutGrid,
+        icon: Home,
     },
     {
-        title: 'View Examinations',
-        href: '/admin/categories',
+        title: 'Certifications',
+        href: '/certifications',
         icon: BookCopy,
     },
     {
-        title: 'Practice',
-        href: '/admin/providers',
+        title: 'My Practices',
+        href: '/practices',
         icon: SquareTerminal,
     },
     {
         title: 'Subscriptions',
-        href: '/admin/exams',
+        href: '/subscriptions',
         icon: BookOpenCheck,
     },
     {
@@ -83,6 +87,21 @@ const footerNavItems: NavItem[] = [
         title: 'Users',
         href: '/admin/users',
         icon: UserRoundCog,
+    },
+    {
+        title: 'Roles',
+        href: '/admin/acl/roles',
+        icon: Users,
+    },
+    {
+        title: 'Support',
+        href: '/admin/acl/roles',
+        icon: LifeBuoy,
+    },
+    {
+        title: 'Feedback',
+        href: '/admin/acl/roles',
+        icon: Send,
     }
 ];
 </script>

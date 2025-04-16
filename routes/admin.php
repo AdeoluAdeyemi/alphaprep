@@ -65,6 +65,9 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     // ->only(['index','create','store','edit','update','destroy'])
     // ->names('admin.permissions');
 
+    Route::get('acl/roles', function () {
+        return Inertia::render('admin/acl/Roles');
+    })->middleware(['auth', 'verified'])->name('admin.roles');
     // // Roles
     // Route::resource('roles', RoleController::class)
     // ->only(['index','create','store','edit','update','destroy'])

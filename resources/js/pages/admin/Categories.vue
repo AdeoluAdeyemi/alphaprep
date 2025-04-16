@@ -1,5 +1,4 @@
 <script setup lang="ts">
-//import type { Payment } from '@/components/payments/columns'
 import { onMounted, ref } from 'vue'
 import { columns, payments } from '@/components/payments/columns'
 import DataTable from '@/components/ui/data-table/DataTable.vue'
@@ -12,6 +11,7 @@ import { CirclePlus, Pencil } from 'lucide-vue-next'
 import PlaceholderPattern from '@/components/PlaceholderPattern.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 import InputError from '@/components/InputError.vue';
+import { Separator } from '@/components/ui/separator';
 import {
     Dialog,
     DialogContent,
@@ -23,7 +23,14 @@ import {
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from '@/components/ui/card'
 import {
     Sheet,
     SheetContent,

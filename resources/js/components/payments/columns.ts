@@ -1,8 +1,9 @@
 import { h } from 'vue'
 import DropdownAction from '@/components/DataTableDropDown.vue'
+import ActionGroup from '@/components/ActionGroup.vue'
 import type { ColumnDef } from '@tanstack/vue-table'
 import { Button } from '@/components/ui/button';
-import { ArrowUpDown, ChevronDown } from 'lucide-vue-next';
+import { ArrowUpDown, ChevronDown, CircleX, CircleCheck } from 'lucide-vue-next';
 
 export const columns: ColumnDef<Payment>[] = [
     {
@@ -36,6 +37,24 @@ export const columns: ColumnDef<Payment>[] = [
 
     },
     {
+        id: 'published',
+        enableHiding: false,
+        cell: ({ row }) => {
+            const payment = row.original
+
+            return h(CircleX, { class: 'relative  text-red-500' })
+        },
+    },
+    {
+        id: 'published',
+        enableHiding: false,
+        cell: ({ row }) => {
+            const payment = row.original
+
+            return h(CircleCheck, { class: 'relative  text-green-500' })
+        },
+    },
+    {
         accessorKey: 'amount',
         header: () => h('div', { class: 'text-right' }, 'Amount'),
         cell: ({ row }) => {
@@ -55,6 +74,18 @@ export const columns: ColumnDef<Payment>[] = [
             const payment = row.original
 
             return h('div', { class: 'relative' }, h(DropdownAction, {
+                payment,
+                onExpand: row.toggleExpanded,
+            }))
+        },
+    },
+    {
+        id: 'actions',
+        enableHiding: false,
+        cell: ({ row }) => {
+            const payment = row.original
+
+            return h('div', { class: 'relative' }, h(ActionGroup, {
                 payment,
                 onExpand: row.toggleExpanded,
             }))

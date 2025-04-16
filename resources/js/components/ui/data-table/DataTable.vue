@@ -91,9 +91,9 @@
                                 </TableCell>
                             </TableRow>
                             <TableRow v-if="row.getIsExpanded()">
-                            <TableCell :colspan="row.getAllCells().length" class="p-2">
-                                Email: {{ row.getValue('email') }}
-                            </TableCell>
+                                <TableCell :colspan="row.getAllCells().length" class="p-2">
+                                    Email: {{ row.getValue('email') }}
+                                </TableCell>
                             </TableRow>
                         </template>
                     </template>
@@ -127,7 +127,7 @@
         <div class="flex items-center space-x-6 lg:space-x-8">
         <div class="flex items-center space-x-2">
             <p class="text-sm font-medium">
-            Rows per page
+                Rows per page
             </p>
             <Select
             :model-value="`${table.getState().pagination.pageSize}`"

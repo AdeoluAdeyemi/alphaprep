@@ -34,6 +34,17 @@ import {
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 
+import {
+    Pagination,
+    PaginationEllipsis,
+    PaginationFirst,
+    PaginationLast,
+    PaginationList,
+    PaginationListItem,
+    PaginationNext,
+    PaginationPrev,
+} from '@/components/ui/pagination'
+
 const breadcrumbs: BreadcrumbItem[] = [
     {
         title: 'Exam',
@@ -93,11 +104,28 @@ const plans = [
                     Exam
                 </h2>
                 <div class="flex items-center space-x-2">
+                    <Pagination v-slot="{ page }" :items-per-page="10" :total="100" :sibling-count="1" show-edges :default-page="2">
+                        <PaginationList v-slot="{ items }" class="flex items-center gap-1">
+                        <PaginationFirst />
+                        <PaginationPrev />
 
+                        <template v-for="(item, index) in items">
+                            <PaginationListItem v-if="item.type === 'page'" :key="index" :value="item.value" as-child>
+                            <Button class="w-9 h-9 p-0" :variant="item.value === page ? 'default' : 'outline'">
+                                {{ item.value }}
+                            </Button>
+                            </PaginationListItem>
+                            <PaginationEllipsis v-else :key="item.type" :index="index" />
+                        </template>
+
+                        <PaginationNext />
+                        <PaginationLast />
+                        </PaginationList>
+                    </Pagination>
                 </div>
             </div>
 
-            <div class="container mx-auto">
+            <div class="grid auto-rows-min">
                 <Card>
                     <CardHeader>
                         <CardTitle class="question_number font-semibold text-lg text-gray-800 mb-3">Create project</CardTitle>

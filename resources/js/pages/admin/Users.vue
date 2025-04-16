@@ -15,6 +15,8 @@
     import { Head, useForm } from '@inertiajs/vue3';
     import ImageUploader from '@/components/ImageUploader.vue';
     import InputError from '@/components/InputError.vue';
+    import { Badge } from '@/components/ui/badge'
+    import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
     import {
         Dialog,
         DialogContent,
@@ -34,7 +36,12 @@
         SelectTrigger,
         SelectValue,
     } from '@/components/ui/select'
-    import { Input } from '@/components/ui/input'
+    import { Input } from '@/components/ui/input';
+
+    import {
+        CircleChevronUp,
+        CircleChevronDown
+    } from 'lucide-vue-next';
 
     const breadcrumbs: BreadcrumbItem[] = [
         {
@@ -188,7 +195,7 @@ const form = useForm({
                         </DialogTrigger>
                         <DialogContent>
                             <DialogHeader>
-                                <DialogTitle>Edit Provider</DialogTitle>
+                                <DialogTitle>Edit User</DialogTitle>
                                 <DialogDescription>
                                     Fields with asterisks <span class="text-red-600">(*)</span> are mandatory fields.
                                 </DialogDescription>
@@ -202,12 +209,54 @@ const form = useForm({
                                     </div>
 
                                     <div class="grid gap-2">
-                                        <Label for="email">Slug</Label>
+                                        <Label for="email">Email</Label>
                                         <Input id="email" type="email" required :tabindex="2" autocomplete="email" v-model="form.email" placeholder="email@example.com" />
                                         <InputError :message="form.errors.email" />
                                     </div>
                                 </div>
 
+                                <div class="grid grid-cols-2 gap-4 mt-2">
+                                    <div class="flex items-center space-x-2">
+                                        <Switch id="airplane-mode" />
+                                        <Label for="airplane-mode">Is Admin*</Label>
+
+                                        <InputError :message="form.errors.zip_code" />
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <Switch id="airplane-mode" />
+                                        <Label for="airplane-mode">Is Active*</Label>
+
+                                        <InputError :message="form.errors.country" />
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="grid gap-2">
+                                        <Label for="city">Email verified at</Label>
+                                        <Input
+                                            type="datetime-local"
+                                            v-model="form.city"
+                                            required
+                                            autofocus
+                                            placeholder="Datetime Local"
+                                        />
+
+                                        <InputError :message="form.errors.city" />
+                                    </div>
+                                    <div class="grid gap-2">
+                                        <Label for="state">Password*</Label>
+                                        <Input
+                                            id="state"
+                                            type="password"
+                                            v-model="form.state"
+                                            required
+                                            autofocus
+                                            autocomplete="state"
+                                        />
+
+                                        <InputError :message="form.errors.state" />
+                                    </div>
+                                </div>
                                 <div class="grid gap-2">
                                     <Label for="password">Provider Logo*</Label>
 
@@ -219,53 +268,9 @@ const form = useForm({
                                     />
                                     <InputError :message="form.errors.password" />
                                 </div>
-
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div class="grid gap-2">
-                                        <Label for="city">URL*</Label>
-                                        <Input
-                                            id="city"
-                                            type="text"
-                                            v-model="form.city"
-                                            required
-                                            autofocus
-                                            autocomplete="city"
-                                        />
-
-                                        <InputError :message="form.errors.city" />
-                                    </div>
-                                    <div class="grid gap-2">
-                                        <Label for="state">Category*</Label>
-                                        <Input
-                                            id="state"
-                                            type="text"
-                                            v-model="form.state"
-                                            required
-                                            autofocus
-                                            autocomplete="state"
-                                        />
-
-                                        <InputError :message="form.errors.state" />
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-2 gap-4 mt-2">
-                                    <div class="flex items-center space-x-2">
-                                        <Switch id="airplane-mode" />
-                                        <Label for="airplane-mode">Choose Status</Label>
-
-                                        <InputError :message="form.errors.zip_code" />
-                                    </div>
-                                    <div class="flex items-center space-x-2">
-                                        <Switch id="airplane-mode" />
-                                        <Label for="airplane-mode">Featured provider</Label>
-
-                                        <InputError :message="form.errors.country" />
-                                    </div>
-                                </div>
-
                             </div>
                             <DialogFooter>
-                                <Button class="h-9">Update Category</Button>
+                                <Button class="h-9">Update User</Button>
                             </DialogFooter>
                         </DialogContent>
                     </Dialog>
@@ -275,6 +280,52 @@ const form = useForm({
             <div class="container mx-auto">
                 <DataTable :columns="columns" :data="payments" />
             </div>
+
+            <div class="flex w-full scroll-mt-16 flex-col rounded-lg border">
+                <div class="border-b px-4 py-2">
+                    <div class="text-md font-bold">
+                        <ToggleGroup type="single" class="justify-start">
+                            <ToggleGroupItem value="bold" aria-label="Toggle bold" class="flex space-x-4">
+                                <p>Resources</p>
+                                <span>
+                                    <Badge>
+                                        90
+                                    </Badge>
+                                </span>
+                            </ToggleGroupItem>
+                            <ToggleGroupItem value="italic" aria-label="Toggle italic">
+                                <p>Pages</p>
+                                <span>
+                                    <Badge>
+                                        30
+                                    </Badge>
+                                </span>
+                            </ToggleGroupItem>
+                            <ToggleGroupItem value="underline" aria-label="Toggle underline">
+                                <p>Widget</p>
+                                <span>
+                                    <Badge>
+                                        40
+                                    </Badge>
+                                </span>
+                            </ToggleGroupItem>
+                        </ToggleGroup>
+                    </div>
+                </div>
+                <div class="flex flex-1 items-center gap-2 p-4 px-6">
+                    <div class="flex w-full scroll-mt-16 flex-col rounded-lg border">
+                        <div class="border-b px-4 py-3 inline-flex justify-between">
+                            <div class="text-md font-bold py-2">Hello World</div>
+                            <CircleChevronDown class="mt-2" v-if="a!==1"/>
+                            <CircleChevronUp class="mt-2" v-else />
+                        </div>
+                        <div class="flex flex-1 items-center gap-2 p-4">
+                            Hello world;
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </AppLayout>
 </template>
