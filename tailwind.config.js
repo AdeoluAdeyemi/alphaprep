@@ -20,6 +20,8 @@ export default {
                 sm: 'calc(var(--radius) - 4px)',
             },
             colors: {
+                'paystack-blue': '#0065ff',
+                'paystack-dark': '#001e4d',
                 background: 'hsl(var(--background))',
                 foreground: 'hsl(var(--foreground))',
                 card: {

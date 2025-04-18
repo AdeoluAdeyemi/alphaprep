@@ -139,12 +139,12 @@ const plans = [
                                         <Label
                                             v-for="plan in plans"
                                             :key="plan.id"
-                                            class="hover:bg-accent/50 flex items-start gap-3 rounded-lg border p-4 has-[[data-state=checked]]:border-green-600 has-[[data-state=checked]]:bg-green-50 dark:has-[[data-state=checked]]:border-green-900 dark:has-[[data-state=checked]]:bg-green-950"
+                                            class="hover:bg-accent/50 flex items-start gap-3 rounded-lg border p-4 has-[[data-state=checked]]:border-blue-600 has-[[data-state=checked]]:bg-blue-50 dark:has-[[data-state=checked]]:border-blue-900 dark:has-[[data-state=checked]]:bg-blue-800"
                                         >
                                             <RadioGroupItem
                                             :id="plan.name"
                                             :value="plan.id"
-                                            class="shadow-none data-[state=checked]:border-green-600 data-[state=checked]:bg-green-600 *:data-[slot=radio-group-indicator]:[&>svg]:fill-white *:data-[slot=radio-group-indicator]:[&>svg]:stroke-white"
+                                            class="shadow-none data-[state=unchecked]:border-blue-600 data-[state=unchecked]:bg-blue-600 *:data-[slot=radio-group-indicator]:[&>svg]:fill-white *:data-[slot=radio-group-indicator]:[&>svg]:stroke-white"
                                             />
                                             <div class="grid gap-1 font-normal">
                                                 <div class="font-medium">{{ plan.name }}</div>
